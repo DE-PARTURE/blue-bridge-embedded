@@ -1,0 +1,67 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.25.3.0
+Copyright (C) 2018 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: DE_P DE_P, DE_P, LIC=32B1Q-NLCFP-QDUKD-8AGCV-7TG5N-IF3AQ
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.23
+Toolchain Path:  E:\$Keil\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 4 (build 422)
+Assembler:       Armasm.exe V5.06 update 4 (build 422)
+Linker/Locator:  ArmLink.exe V5.06 update 4 (build 422)
+Library Manager: ArmAr.exe V5.06 update 4 (build 422)
+Hex Converter:   FromElf.exe V5.06 update 4 (build 422)
+CPU DLL:         SARMCM3.DLL V5.23
+Dialog DLL:      DARMSTM.DLL V1.68.0.0
+Target DLL:      coocox-agdi.dll V???
+Dialog DLL:      TARMSTM.DLL V1.66.0.0
+ 
+<h2>Project:</h2>
+E:\University\code\Code_32\##ForBlueBridge\2_KeyBoard\Program6\USER\Project6.uvproj
+Project File Date:  03/16/2020
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 4 (build 422)', folder: 'E:\$Keil\ARM\ARMCC\Bin'
+Rebuild target 'Project6'
+assembling startup_stm32f10x_md.s...
+compiling core_cm3.c...
+compiling stm32f10x_it.c...
+compiling misc.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_exti.c...
+compiling system_stm32f10x.c...
+compiling stm32f10x_rcc.c...
+compiling lcd.c...
+compiling main.c...
+main.c(55): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  		sprintf(String,"    %d%d : %d%d : %d%d",HHour, LHour, HMin, LMin, HSec, LSec);
+main.c(75): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  	sprintf(String,"%s%d%d Hour","       ",HHour, LHour);
+main.c(89): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  			sprintf(String,"%s%d%d Hour","       ",HHour, LHour);
+main.c(102): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  			sprintf(String,"%s%d%d Hour","       ",HHour, LHour);
+main.c(116): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  	sprintf(String,"%s%d%d Min","       ", HMin, LMin);
+main.c(130): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  			sprintf(String,"%s%d%d Min","       ", HMin, LMin);
+main.c(143): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  			sprintf(String,"%s%d%d Min","       ", HMin, LMin);
+main.c(156): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  	sprintf(String,"%s%d%d Sec","       ", HSec, LSec);
+main.c(170): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  			sprintf(String,"%s%d%d Sec","       ", HSec, LSec);
+main.c(183): warning:  #167-D: argument of type "uint8_t *" is incompatible with parameter of type "char *restrict"
+  			sprintf(String,"%s%d%d Sec","       ", HSec, LSec);
+main.c: 10 warnings, 0 errors
+linking...
+Program Size: Code=5740 RO-data=4828 RW-data=44 ZI-data=1652  
+"..\OUTPUT\Project6.axf" - 0 Error(s), 10 Warning(s).
+Build Time Elapsed:  00:00:02
+</pre>
+</body>
+</html>

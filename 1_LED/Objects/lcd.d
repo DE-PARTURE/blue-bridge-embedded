@@ -1,0 +1,11 @@
+.\objects\lcd.o: HardWare\lcd.c
+.\objects\lcd.o: HardWare\lcd.h
+.\objects\lcd.o: .\CMSIS\stm32f10x.h
+.\objects\lcd.o: .\CMSIS\core_cm3.h
+.\objects\lcd.o: E:\$Keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\lcd.o: .\CMSIS\system_stm32f10x.h
+.\objects\lcd.o: .\Basic\stm32f10x_conf.h
+.\objects\lcd.o: .\Lib\inc\stm32f10x_gpio.h
+.\objects\lcd.o: .\CMSIS\stm32f10x.h
+.\objects\lcd.o: .\Lib\inc\stm32f10x_rcc.h
+.\objects\lcd.o: HardWare\fonts.h
