@@ -31,7 +31,7 @@ void TIM3_PWMInit()// 500Hz
   TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
   TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
   TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;
-	TIM_OC3Init(TIM3,&TIM_OCInitStructure);
+	TIM_OC3Init(TIM3,&TIM_OCInitStructure); 
 	TIM_OC3PreloadConfig(TIM3,TIM_OCPreload_Enable);
 	TIM_OC4Init(TIM3,&TIM_OCInitStructure);
 	TIM_OC4PreloadConfig(TIM3,TIM_OCPreload_Enable);

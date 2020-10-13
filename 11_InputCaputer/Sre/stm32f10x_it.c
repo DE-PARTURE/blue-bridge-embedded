@@ -22,8 +22,8 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f10x_it.h"
-
+#include "stm32f10x_tim.h"
+#include "stm32f10x.h"
 extern u32 TimingDelay;
 
 /** @addtogroup STM32F10x_StdPeriph_Examples
@@ -154,6 +154,59 @@ void SysTick_Handler(void)
 /*void PPP_Switch_IRQHandler(void)
 {
 }*/
+//7、编写中断服务函数
+__IO uint16_t IC2ReadValue1 = 0, IC2ReadValue2 = 0,IC2ReadValue_LOW = 0;
+__IO uint16_t CaptureNumber = 0;
+__IO uint32_t Capture = 0;
+__IO uint32_t TIM2Freq = 0;
+__IO uint32_t TIM2Duty = 0;
+u8 TIM2FreqReady = 0;
+void TIM2_IRQHandler(void)
+{ 
+  if(TIM_GetITStatus(TIM2, TIM_IT_CC2) == SET) 
+  {
+    /* Clear TIM3 Capture compare interrupt pending bit */
+    TIM_ClearITPendingBit(TIM2, TIM_IT_CC2);
+    if(CaptureNumber == 0)
+    {
+      /* Get the Input Capture value */
+      IC2ReadValue1 = TIM_GetCapture2(TIM2);
+      CaptureNumber = 1;
+			//设置下降沿捕获
+			TIM_OC2PolarityConfig(TIM2,TIM_OCPolarity_Low);
+    }
+		else if(CaptureNumber == 1)
+		{
+			IC2ReadValue_LOW = TIM_GetCapture2(TIM2);
+			CaptureNumber = 2;
+			//设置上升沿捕获
+			TIM_OC2PolarityConfig(TIM2,TIM_OCPolarity_High);
+		}
+    else if(CaptureNumber == 2)
+    {
+      /* Get the Input Capture value */
+      IC2ReadValue2 = TIM_GetCapture2(TIM2); 
+      
+      /* Capture computation */
+      if (IC2ReadValue2 > IC2ReadValue1)
+      {
+        Capture = (IC2ReadValue2 - IC2ReadValue1); 
+      }
+      else
+      {
+        Capture = ((0xFFFF - IC2ReadValue1) + IC2ReadValue2);
+				
+      }
+      /* Frequency computation */ 
+			TIM2Duty = ( (IC2ReadValue_LOW-IC2ReadValue1)*100 ) / Capture;
+      TIM2Freq = 1000000 / Capture;//定时器经过72分频后的频率
+      CaptureNumber = 0;
+			TIM2FreqReady = 1;
+			TIM_SetCounter(TIM2,0);
+    }
+		
+  }
+}
 
 /**
   * @}

@@ -7,5 +7,7 @@
 #include "LED.h"
 #include "Buzzer.h"
 #include "PWM.h"
+#include "InputCaputer.h"
+#include "String.h"
 
 #endif
