@@ -40,7 +40,9 @@ void FlagScan()
 			if(RxBuffer1[2] == '.'){
 					RxCounter1 = 0x00;
 					EEDat_S = RxBuffer1[3]- '0';
-					EEWrite(0x01,EEDat_S);
+					if( (EEDat_S > 0) &&(EEDat_S <= 9) ){
+						EEWrite(0x01,EEDat_S);
+					}
 					memset(TxBuffer1,0x00,sizeof(uint8_t)*255);//Çå¿Õ·¢ËÍ
 					sprintf((char *)TxBuffer1,"ok\n");
 					USART2_SendString();
@@ -145,10 +147,37 @@ void UI1()
 //UI--ÉèÖÃ
 void UI2()
 {
-	sprintf((char *)Str,"       Setting       ");
+	sprintf((char *)Str,"      Setting        ");
 	LCD_DisplayStringLine(Line3,Str);
-	sprintf((char *)Str,"      %.2d-%.2d-%.2d      ",Set_Hour,Set_Min,Set_Sec);
-	LCD_DisplayStringLine(Line5,Str);
+	if(TimeSetIndex == 0)
+		LCD_SetTextColor(Green);
+	else
+		LCD_SetTextColor(White);
+	LCD_DisplayChar(Line6, 240, Set_Hour/10 + '0');
+	LCD_DisplayChar(Line6, 225, Set_Hour%10 + '0');
+	
+	LCD_SetTextColor(White);
+	LCD_DisplayChar(Line6, 210, '-');
+	
+	if(TimeSetIndex == 1)
+		LCD_SetTextColor(Green);
+	else
+		LCD_SetTextColor(White);
+	LCD_DisplayChar(Line6, 195, Set_Min/10 + '0');
+	LCD_DisplayChar(Line6, 180, Set_Min%10 + '0');
+	
+	LCD_SetTextColor(White);
+	LCD_DisplayChar(Line6, 165, '-');
+	
+	if(TimeSetIndex == 2)
+		LCD_SetTextColor(Green);
+	else
+		LCD_SetTextColor(White);
+	LCD_DisplayChar(Line6, 150, Set_Sec/10 + '0');
+	LCD_DisplayChar(Line6, 135, Set_Sec%10 + '0');
+	
+	LCD_SetTextColor(White);	
+
 }
 
 void UISelect()
