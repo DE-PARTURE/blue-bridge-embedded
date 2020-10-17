@@ -52,19 +52,19 @@ void RTCInit(void)
   /* Wait until last write operation on RTC registers has finished */
   RTC_WaitForLastTask();
 	
-	RTC_SetCounter(HH*3600+MM*60+SS);
+	RTC_SetCounter(HH*3600+MM*60+SS);//设定时间
 	RTC_WaitForLastTask();
 }
 void RTC_IRQHandler(void)
 {
   if (RTC_GetITStatus(RTC_IT_SEC) != RESET)
   {
-		if(Time == 23*3600 + 59*60 + 59)
+		Time = RTC_GetCounter();//先读取在判断
+		if(Time == 23*3600 + 59*60 + 59)//防止出现24:00:00
 		{
 			RTC_SetCounter(0);
 			RTC_WaitForLastTask();
 		}
-    Time = RTC_GetCounter();
 		Hour = Time /3600;
 		Min  = Time % 3600 / 60;
 		Sec  = Time % 60;

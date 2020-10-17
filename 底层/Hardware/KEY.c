@@ -88,7 +88,7 @@ void EXTI0_IRQHandler(void)
   if(EXTI_GetITStatus(EXTI_Line0) != RESET)
   {
     Delay_Ms(20);
-		if(EXTI_GetITStatus(EXTI_Line0) != RESET)
+		if(GPIO_ReadOutputDataBit(GPIOA,GPIO_Pin_0) == Bit_RESET)
 		{
 			BuzzerOn(100);
 		}
@@ -102,7 +102,7 @@ void EXTI9_5_IRQHandler(void)
   if(EXTI_GetITStatus(EXTI_Line8) != RESET)
   {
     Delay_Ms(20);
-		if(EXTI_GetITStatus(EXTI_Line8) != RESET)
+		if(GPIO_ReadOutputDataBit(GPIOA,GPIO_Pin_8) == Bit_RESET)
 		{
 			BuzzerOn(100);
 		}
@@ -115,7 +115,7 @@ void EXTI1_IRQHandler(void)
   if(EXTI_GetITStatus(EXTI_Line1) != RESET)
   {
     Delay_Ms(20);
-		if(EXTI_GetITStatus(EXTI_Line1) != RESET)
+		if(GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_1) == Bit_RESET)
 		{
 			BuzzerOn(100);
 		}
@@ -128,7 +128,7 @@ void EXTI2_IRQHandler(void)
   if(EXTI_GetITStatus(EXTI_Line2) != RESET)
   {
     Delay_Ms(20);
-		if(EXTI_GetITStatus(EXTI_Line2) != RESET)
+		if(GPIO_ReadOutputDataBit(GPIOB,GPIO_Pin_2) == Bit_RESET)
 		{
 			BuzzerOn(100);
 		}

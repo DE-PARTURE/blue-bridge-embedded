@@ -8,7 +8,6 @@ __IO uint32_t Capture = 0;
 __IO uint32_t TIM2Freq = 0;
 __IO uint32_t Duty = 0;
 
-
 //PA1
 void PWMICInit(void)
 {
@@ -60,12 +59,12 @@ void TIM2_IRQHandler(void)
       /* Get the Input Capture value */
       IC2ReadValue1 = TIM_GetCapture2(TIM2);
       CaptureNumber = 1;
-			TIM_OC2PolarityConfig(TIM2,TIM_OCPolarity_Low);
+			TIM_OC2PolarityConfig(TIM2,TIM_OCPolarity_Low);//准备检测下降沿
     }
-		else if(CaptureNumber == 1)
+		else if(CaptureNumber == 1)//检测下降沿
 		{
 			IC2ReadValueLow = TIM_GetCapture2(TIM2);
-			TIM_OC2PolarityConfig(TIM2,TIM_OCPolarity_High);
+			TIM_OC2PolarityConfig(TIM2,TIM_OCPolarity_High);//准备检测上升沿
 			CaptureNumber = 2;
 		}
     else if(CaptureNumber == 2)
@@ -85,7 +84,7 @@ void TIM2_IRQHandler(void)
       /* Frequency computation */ 
       TIM2Freq = 1000000 / Capture;
 			Duty = ((IC2ReadValueLow-IC2ReadValue1)*100)/Capture;
-			TIM_SetCounter(TIM2,0);
+			TIM_SetCounter(TIM2,0);//清空计数器
       CaptureNumber = 0;
     }
   }

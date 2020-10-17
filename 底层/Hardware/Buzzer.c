@@ -7,7 +7,7 @@ void BuzzerInit()
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB|RCC_APB2Periph_AFIO, ENABLE);
-  GPIO_PinRemapConfig(GPIO_Remap_SWJ_NoJTRST, ENABLE);
+  GPIO_PinRemapConfig(GPIO_Remap_SWJ_NoJTRST, ENABLE);//映射到NoJTRST
 
   /* Configure PD0 and PD2 in output pushpull mode */
   GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_4;
@@ -19,7 +19,7 @@ void BuzzerInit()
 void BuzzerOn(u32 Ms)//
 {
 	GPIO_WriteBit(GPIOB,GPIO_Pin_4,Bit_RESET);
-	BuzzerCount = Ms/20;
+	BuzzerCount = Ms/20;//在20ms定时器中断中自减
 }
 
 void BuzzerOff()

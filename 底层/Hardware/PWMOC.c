@@ -36,5 +36,5 @@ void PWMOCInit(u32 Freq)
   /* TIM3 enable counter */
   TIM_Cmd(TIM3, ENABLE);
 }
-
+//TIM_SetCompare2
 

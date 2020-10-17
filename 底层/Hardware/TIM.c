@@ -18,7 +18,7 @@ void TIM4Init()//20ms中断
 	NVIC_Init(&NVIC_InitStructure);
 
 	TIM_TimeBaseStructure.TIM_Period = 72-1;
-  TIM_TimeBaseStructure.TIM_Prescaler = 20000-1;
+  TIM_TimeBaseStructure.TIM_Prescaler = 20000-1;//设定中断事件 
   TIM_TimeBaseStructure.TIM_ClockDivision = 0;
   TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;
 	TIM_TimeBaseInit(TIM4, &TIM_TimeBaseStructure);
@@ -37,7 +37,7 @@ void TIM4_IRQHandler(void)
 		Count++;
 		if(Count >= 10)
 		{
-			Flag200Ms = 1;
+			Flag200Ms = 1;//200ms定时Flag
 			Count = 0;
 		}
 		//Buzzer

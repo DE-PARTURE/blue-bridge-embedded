@@ -2,7 +2,7 @@
 
 float ADCVal = 0;
 
-
+//PB0 ADC1channel8
 void ADC1Init(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
@@ -16,15 +16,15 @@ void ADC1Init(void)
   GPIO_Init(GPIOB, &GPIO_InitStructure);
 	
 	ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;
-  ADC_InitStructure.ADC_ScanConvMode = DISABLE;
-  ADC_InitStructure.ADC_ContinuousConvMode = DISABLE;
+  ADC_InitStructure.ADC_ScanConvMode = DISABLE;//改成DISABLE
+  ADC_InitStructure.ADC_ContinuousConvMode = DISABLE;//改成DISABLE
   ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None;
   ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;
   ADC_InitStructure.ADC_NbrOfChannel = 8;
   ADC_Init(ADC1, &ADC_InitStructure);
 	
 	
-	ADC_RegularChannelConfig(ADC1, ADC_Channel_8, 1, ADC_SampleTime_239Cycles5);
+	ADC_RegularChannelConfig(ADC1, ADC_Channel_8, 1, ADC_SampleTime_239Cycles5);//239.5个周期作为转换时间
 	ADC_Cmd(ADC1, ENABLE);
 	/* Enable ADC1 reset calibration register */   
   ADC_ResetCalibration(ADC1);
@@ -43,7 +43,7 @@ void AD_Get(void)
 {
 	uint16_t ADCGetVal = 0;
 	ADC_SoftwareStartConvCmd(ADC1, ENABLE);
-	while(!ADC_GetFlagStatus(ADC1,ADC_FLAG_EOC));
+	while(!ADC_GetFlagStatus(ADC1,ADC_FLAG_EOC));//等待转换完毕
 	ADCGetVal = ADC_GetConversionValue(ADC1);
 	
 	ADCVal = (float)ADCGetVal * 3.3 / 4096;

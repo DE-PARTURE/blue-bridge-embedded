@@ -95,9 +95,9 @@ void USARTz_IRQHandler(void)
 void USARTSendString()
 {
 	while(TxReady == 0);
-	NbrOfDataToTransfer1 = TxBufferSize1;
-	TxCounter1 = 0;
-	TxReady = 0;
+	NbrOfDataToTransfer1 = TxBufferSize1;//记得更新容量大小
+	TxCounter1 = 0;//发送计数变量
+	TxReady = 0;//Tx忙碌
 	USART_ITConfig(USARTz, USART_IT_TXE, ENABLE);
 	
 }
