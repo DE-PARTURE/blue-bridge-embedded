@@ -795,7 +795,7 @@ I (..\spl\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\spl\misc.h)(0x4D783BB4)
 I (..\code\fonts.h)(0x57FAFEFC)
 I (..\code\main.h)(0x58FD7238)
-F (..\code\i2c.c)(0x58FA0AFA)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\spl -I ..\code-IE:\Keil\Software\ARM\RV31\INC-IE:\Keil\Software\ARM\CMSIS\Include-IE:\Keil\Software\ARM\INC\ST\STM32F10x-D__UVISION_VERSION="527" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\output\i2c.o --omf_browse ..\output\i2c.crf --depend ..\output\i2c.d)
+F (..\code\i2c.c)(0x5FA92D9B)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\spl -I ..\code-IE:\Keil\Software\ARM\RV31\INC-IE:\Keil\Software\ARM\CMSIS\Include-IE:\Keil\Software\ARM\INC\ST\STM32F10x-D__UVISION_VERSION="527" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\output\i2c.o --omf_browse ..\output\i2c.crf --depend ..\output\i2c.d)
 I (..\spl\stm32f10x.h)(0x4D783CB4)
 I (..\spl\core_cm3.h)(0x4D523B58)
 I (E:\Keil\Software\ARM\ARMCC\include\stdint.h)(0x5EC775FC)
@@ -824,7 +824,7 @@ I (..\spl\stm32f10x_tim.h)(0x4D783BB4)
 I (..\spl\stm32f10x_usart.h)(0x4D783BB4)
 I (..\spl\stm32f10x_wwdg.h)(0x4D783BB4)
 I (..\spl\misc.h)(0x4D783BB4)
-F (..\code\mems.c)(0x59100C4C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\spl -I ..\code-IE:\Keil\Software\ARM\RV31\INC-IE:\Keil\Software\ARM\CMSIS\Include-IE:\Keil\Software\ARM\INC\ST\STM32F10x-D__UVISION_VERSION="527" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\output\mems.o --omf_browse ..\output\mems.crf --depend ..\output\mems.d)
+F (..\code\mems.c)(0x5FA92BC8)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork -I ..\spl -I ..\code-IE:\Keil\Software\ARM\RV31\INC-IE:\Keil\Software\ARM\CMSIS\Include-IE:\Keil\Software\ARM\INC\ST\STM32F10x-D__UVISION_VERSION="527" -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\output\mems.o --omf_browse ..\output\mems.crf --depend ..\output\mems.d)
 I (..\spl\stm32f10x.h)(0x4D783CB4)
 I (..\spl\core_cm3.h)(0x4D523B58)
 I (E:\Keil\Software\ARM\ARMCC\include\stdint.h)(0x5EC775FC)

@@ -9,7 +9,7 @@ u8 alz[3] ;
 void LIS302DL_Write(unsigned char reg,unsigned char info)
 {	
 	I2CStart(); 
-	I2CSendByte(0x38);  
+	I2CSendByte(0x38);  //Æ÷¼þµØÖ·+Ð´
 	I2CWaitAck();     
 	I2CSendByte(reg);  
 	I2CWaitAck(); 
@@ -23,14 +23,14 @@ uint8_t LIS302DL_Read(uint8_t address)
 {
 	unsigned char val;
 	I2CStart(); 
-	I2CSendByte(0x38);  
+	I2CSendByte(0x38);  //Æ÷¼þµØÖ·+Ð´
 	I2CWaitAck();     
 	
-	I2CSendByte(address);  
+	I2CSendByte(address);  //¼Ä´æÆ÷µØÖ·
 	I2CWaitAck(); 
 	
 	I2CStart();
-	I2CSendByte(0x39); 
+	I2CSendByte(0x39); //Æ÷¼þµØÖ·+¶Á
 	I2CWaitAck();
 	val = I2CReceiveByte(); 
 	I2CSendNotAck();

@@ -109,8 +109,10 @@ unsigned char I2CWaitAck(void)
 			return FAILURE;
 		}
 	}
+	
 	SDA_Output_Mode();
 	SCL_Output(0);delay1(500); 
+	
 	return SUCCESS;
 }
 
